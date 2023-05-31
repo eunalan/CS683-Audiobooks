@@ -1,0 +1,576 @@
+swagger: '2.0'
+info:
+  title: FastAPI
+  version: 0.1.0
+host: "api-dot-cs683-audiobooks.appspot.com"
+x-google-endpoints:
+- name: "api-dot-cs683-audiobooks.appspot.com"
+  allowCors: True
+schemes:
+  - "https"
+paths:
+  /add_book:
+    post:
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            $ref: '#/definitions/AddBook_Data'
+      responses:
+        '200':
+          description: Successful Response
+          schema: {}
+        '422':
+          description: Validation Error
+          schema:
+            $ref: '#/definitions/HTTPValidationError'
+      security:
+        - OAuth2PasswordBearer: []
+        - your_custom_auth_id: []
+      operationId: add_book_add_book_post
+      summary: Add Book
+  /change_user_position:
+    post:
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            $ref: '#/definitions/ChangeUserPosition_Data'
+      responses:
+        '200':
+          description: Successful Response
+          schema: {}
+        '422':
+          description: Validation Error
+          schema:
+            $ref: '#/definitions/HTTPValidationError'
+      security:
+        - OAuth2PasswordBearer: []
+        - your_custom_auth_id: []
+      operationId: change_user_position_change_user_position_post
+      summary: Change User Position
+  /delete_book:
+    get:
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: bookID
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: Successful Response
+          schema: {}
+        '422':
+          description: Validation Error
+          schema:
+            $ref: '#/definitions/HTTPValidationError'
+      security:
+        - OAuth2PasswordBearer: []
+        - your_custom_auth_id: []
+      operationId: delete_book_delete_book_get
+      summary: Delete Book
+  /favorite:
+    post:
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            $ref: '#/definitions/Favorite_Data'
+      responses:
+        '200':
+          description: Successful Response
+          schema: {}
+        '422':
+          description: Validation Error
+          schema:
+            $ref: '#/definitions/HTTPValidationError'
+      security:
+        - OAuth2PasswordBearer: []
+        - your_custom_auth_id: []
+      operationId: favorite_favorite_post
+      summary: Favorite
+  /get_audio_preference:
+    get:
+      produces:
+        - application/json
+      parameters: []
+      responses:
+        '200':
+          description: Successful Response
+          schema: {}
+      security:
+        - OAuth2PasswordBearer: []
+        - your_custom_auth_id: []
+      operationId: get_audio_preference_get_audio_preference_get
+      summary: Get Audio Preference
+  /get_authors:
+    get:
+      produces:
+        - application/json
+      parameters: []
+      responses:
+        '200':
+          description: Successful Response
+          schema: {}
+      security:
+        - OAuth2PasswordBearer: []
+        - your_custom_auth_id: []
+      operationId: get_authors_get_authors_get
+      summary: Get Authors
+  /get_book:
+    get:
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: bookID
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: Successful Response
+          schema: {}
+        '422':
+          description: Validation Error
+          schema:
+            $ref: '#/definitions/HTTPValidationError'
+      security:
+        - OAuth2PasswordBearer: []
+        - your_custom_auth_id: []
+      operationId: get_book_get_book_get
+      summary: Get Book
+  /get_book_audio:
+    get:
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: bookID
+          required: true
+          type: integer
+        - in: query
+          name: bookPart
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: Successful Response
+          schema: {}
+        '422':
+          description: Validation Error
+          schema:
+            $ref: '#/definitions/HTTPValidationError'
+      security:
+        - OAuth2PasswordBearer: []
+        - your_custom_auth_id: []
+      operationId: get_book_audio_get_book_audio_get
+      summary: Get Book Audio
+  /get_book_file:
+    get:
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: bookID
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: Successful Response
+          schema: {}
+        '422':
+          description: Validation Error
+          schema:
+            $ref: '#/definitions/HTTPValidationError'
+      security:
+        - OAuth2PasswordBearer: []
+        - your_custom_auth_id: []
+      operationId: get_book_file_get_book_file_get
+      summary: Get Book File
+  /get_books:
+    get:
+      produces:
+        - application/json
+      parameters:
+        - default: popularity
+          in: query
+          name: sortedBy
+          required: false
+          type: string
+        - default: 25
+          in: query
+          name: numBooks
+          required: false
+          type: integer
+        - default: 0
+          in: query
+          name: page
+          required: false
+          type: integer
+        - default: 0
+          in: query
+          name: category
+          required: false
+          type: integer
+        - default: 0
+          in: query
+          name: author
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: Successful Response
+          schema: {}
+        '422':
+          description: Validation Error
+          schema:
+            $ref: '#/definitions/HTTPValidationError'
+      security:
+        - OAuth2PasswordBearer: []
+        - your_custom_auth_id: []
+      operationId: get_books_get_books_get
+      summary: Get Books
+  /get_categories:
+    get:
+      produces:
+        - application/json
+      parameters: []
+      responses:
+        '200':
+          description: Successful Response
+          schema: {}
+      security:
+        - OAuth2PasswordBearer: []
+        - your_custom_auth_id: []
+      operationId: get_categories_get_categories_get
+      summary: Get Categories
+  /get_favorite_books:
+    get:
+      produces:
+        - application/json
+      parameters:
+        - default: alphabetical
+          in: query
+          name: sortedBy
+          required: false
+          type: string
+        - default: 25
+          in: query
+          name: numBooks
+          required: false
+          type: integer
+        - default: 0
+          in: query
+          name: page
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: Successful Response
+          schema: {}
+        '422':
+          description: Validation Error
+          schema:
+            $ref: '#/definitions/HTTPValidationError'
+      security:
+        - OAuth2PasswordBearer: []
+        - your_custom_auth_id: []
+      operationId: get_books_get_favorite_books_get
+      summary: Get Books
+  /get_user:
+    get:
+      produces:
+        - application/json
+      parameters: []
+      responses:
+        '200':
+          description: Successful Response
+          schema: {}
+      security:
+        - OAuth2PasswordBearer: []
+        - your_custom_auth_id: []
+      operationId: get_current_user_get_user_get
+      summary: Get Current User
+  /get_user_position:
+    get:
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: bookID
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Successful Response
+          schema: {}
+        '422':
+          description: Validation Error
+          schema:
+            $ref: '#/definitions/HTTPValidationError'
+      security:
+        - OAuth2PasswordBearer: []
+        - your_custom_auth_id: []
+      operationId: get_user_position_get_user_position_get
+      summary: Get User Position
+  /jwks.json:
+    get:
+      produces:
+        - application/json
+      parameters: []
+      responses:
+        '200':
+          description: Successful Response
+          schema: {}
+      operationId: login_jwks_json_get
+      summary: Login
+  /register:
+    post:
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            $ref: '#/definitions/UserRegister'
+      responses:
+        '200':
+          description: Successful Response
+          schema: {}
+        '422':
+          description: Validation Error
+          schema:
+            $ref: '#/definitions/HTTPValidationError'
+      operationId: register_register_post
+      summary: Register
+  /secure_endpoint:
+    get:
+      produces:
+        - application/json
+      parameters: []
+      responses:
+        '200':
+          description: Successful Response
+          schema: {}
+      operationId: login_secure_endpoint_get
+      summary: Login
+  /set_audio_preference:
+    post:
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            $ref: '#/definitions/AudioPreference_Data'
+      responses:
+        '200':
+          description: Successful Response
+          schema: {}
+        '422':
+          description: Validation Error
+          schema:
+            $ref: '#/definitions/HTTPValidationError'
+      security:
+        - OAuth2PasswordBearer: []
+        - your_custom_auth_id: []
+      operationId: set_audio_preference_set_audio_preference_post
+      summary: Set Audio Preference
+  /token:
+    post:
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            $ref: '#/definitions/UserLogin'
+      responses:
+        '200':
+          description: Successful Response
+          schema:
+            $ref: '#/definitions/Token'
+        '422':
+          description: Validation Error
+          schema:
+            $ref: '#/definitions/HTTPValidationError'
+      operationId: login_for_access_token_token_post
+      summary: Login For Access Token
+definitions:
+  AddBook_Data:
+    properties:
+      author_name:
+        title: Author Name
+        type: string
+      categories:
+        title: Categories
+        type: string
+      content:
+        title: Content
+        type: string
+      publish_date:
+        title: Publish Date
+        type: string
+      title:
+        title: Title
+        type: string
+    required:
+      - title
+      - author_name
+      - publish_date
+      - categories
+      - content
+    title: AddBook_Data
+    type: object
+  AudioPreference_Data:
+    properties:
+      pitch:
+        title: Pitch
+        type: number
+      speed:
+        title: Speed
+        type: number
+      voice:
+        title: Voice
+        type: string
+    required:
+      - voice
+      - speed
+      - pitch
+    title: AudioPreference_Data
+    type: object
+  ChangeUserPosition_Data:
+    properties:
+      bookID:
+        title: Bookid
+        type: string
+      position:
+        title: Position
+        type: integer
+    required:
+      - bookID
+      - position
+    title: ChangeUserPosition_Data
+    type: object
+  Favorite_Data:
+    properties:
+      bookID:
+        title: Bookid
+        type: string
+      favorite:
+        title: Favorite
+        type: boolean
+    required:
+      - bookID
+      - favorite
+    title: Favorite_Data
+    type: object
+  HTTPValidationError:
+    properties:
+      detail:
+        items:
+          $ref: '#/definitions/ValidationError'
+        title: Detail
+        type: array
+    title: HTTPValidationError
+    type: object
+  Token:
+    properties:
+      access_token:
+        title: Access Token
+        type: string
+    required:
+      - access_token
+    title: Token
+    type: object
+  UserLogin:
+    properties:
+      password:
+        title: Password
+        type: string
+      username:
+        title: Username
+        type: string
+    required:
+      - username
+      - password
+    title: UserLogin
+    type: object
+  UserRegister:
+    properties:
+      email:
+        title: Email
+        type: string
+      password:
+        title: Password
+        type: string
+      username:
+        title: Username
+        type: string
+    required:
+      - username
+      - email
+      - password
+    title: UserRegister
+    type: object
+  ValidationError:
+    properties:
+      loc:
+        items: {}
+        title: Location
+        type: array
+      msg:
+        title: Message
+        type: string
+      type:
+        title: Error Type
+        type: string
+    required:
+      - loc
+      - msg
+      - type
+    title: ValidationError
+    type: object
+securityDefinitions:
+  OAuth2PasswordBearer:
+    flow: password
+    scopes: {}
+    tokenUrl: token
+    type: oauth2
+  your_custom_auth_id:
+    authorizationUrl: ""
+    flow: "implicit"
+    type: "oauth2"
+    # The value below should be unique
+    x-google-issuer: "cs683-audiobooks"
+    x-google-jwks_uri: "https://cs683-audiobooks.appspot.com/jwks.json"
+    # Optional. Replace YOUR-CLIENT-ID with your client ID
+    x-google-audiences: "api-dot-cs683-audiobooks.appspot.com"
+x-components: {}
+

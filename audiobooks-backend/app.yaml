@@ -1,0 +1,28 @@
+service: api
+env: flex
+
+instance_class: B4
+manual_scaling:
+  instances: 1
+
+runtime: python
+runtime_config:
+  operating_system: "ubuntu22"
+  runtime_version: "3.10"
+
+entrypoint: gunicorn -k uvicorn.workers.UvicornWorker main:app
+
+env_variables:
+    DB_USER: "postgres"
+    DB_PASS: "FFFFFFFFFFFFFFFF"
+    DB_NAME: "audiobooks"
+    INSTANCE_CONNECTION_NAME: "cs683-audiobooks:europe-west3:audibooks-pg"
+    
+    JWT_ALGORITHM: "RS256"
+    JWT_ACCESS_TOKEN_EXPIRE_MINUTES: 30
+    BUCKET_NAME: "cs683-audiobooks-bucket"
+
+
+endpoints_api_service:
+  name: api-dot-cs683-audiobooks.appspot.com
+  rollout_strategy: managed

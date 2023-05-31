@@ -1,0 +1,12 @@
+{
+    "keys": [
+        {
+            "kty": "RSA",
+            "kid": "cs683-audiobooks-key",
+            "n": "7hJFN3N5CAwHhOQHH3IbpkJStzpLXQm8oIBnsTXJp7RyeVmXekX4tkAMl4Lool1bECV0N0OY6Ojq-J5Jnqxn1qWyx6ElMzyHlabMaVh1VDuAj6L9eXdDcHrFsnx3cp80hI-G9j4VrC4li7VAlbGn_CX4uKHuzIdZvoErASzLIj2-xMQfwaDQ-I3AuIEgM35PwK5r3QYPaR7Y43GeHlC2WaWjVlrK5ygcQTHR3fIkyjvYedWhH-F_kh-xDrT3W1yw72urU86gidRKCL1_fBRNSBJoKdyc4dDzZHXqykka7rGVbZuMZ5C66NKA4OBSUSj3MUVU_ooYAAOZq3SpNXVCjQ",
+            "e": "AQAB",
+            "alg": "RS256",
+            "use": "sig"
+        }
+    ]
+}
